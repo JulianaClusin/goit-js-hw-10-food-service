@@ -1,0 +1,24 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url /goit-js-hw-10-food-service/",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulianaClusin/goit-js-hw-10-food-service.git"
+  },
+  "author": "Juliana Clusin <naymenko95@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JulianaClusin/goit-js-hw-10-food-service/issues"
+  },
+  "homepage": "https://github.com/JulianaClusin/goit-js-hw-10-food-service"
+}
