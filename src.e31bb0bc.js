@@ -2443,34 +2443,26 @@ require("./styles.css");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var listItems = document.querySelector('ul.js-menu');
-var markup = createList(_menu.default);
-listItems.insertAdjacentHTML('beforeend', markup);
-
-function createList(menuItems) {
-  return (0, _foodCards.default)(menuItems);
-}
-
+var markup = (0, _foodCards.default)(_menu.default);
 var bodyElem = document.querySelector('body');
 var switchToggle = document.querySelector('#theme-switch-toggle');
-switchToggle.addEventListener('change', clickOnCheckbox);
+var checkedTheme = localStorage.getItem('theme');
 var THEME = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme'
 };
+listItems.insertAdjacentHTML('beforeend', markup);
 
-function clickOnCheckbox(elem) {
-  if (elem.target.checked) {
-    bodyElem.classList.add(THEME.DARK);
-    bodyElem.classList.remove(THEME.LIGHT);
+function clickOnCheckbox(event) {
+  if (event.target.click) {
+    bodyElem.classList.toggle(THEME.DARK);
+    localStorage.setItem('theme', bodyElem.classList);
   } else {
-    bodyElem.classList.add(THEME.LIGHT);
-    bodyElem.classList.remove(THEME.DARK);
+    bodyElem.classList.toggle(THEME.LIGHT);
   }
-
-  localStorage.setItem('theme', bodyElem.classList);
 }
 
-var checkedTheme = localStorage.getItem('theme');
+switchToggle.addEventListener('change', clickOnCheckbox);
 
 if (checkedTheme === THEME.DARK) {
   switchToggle.checked = true;
@@ -2504,7 +2496,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49821" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54474" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
